@@ -57,7 +57,7 @@ export function HeroSection() {
           </motion.p>
           
           <motion.div
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            className="mt-10 flex justify-center"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -69,16 +69,6 @@ export function HeroSection() {
               className="shadow-lg"
             >
               I'm a Creator
-            </Button>
-            
-            <Button
-              as={Link}
-              to="/signup/brand"
-              variant="outline"
-              size="xl"
-              className="shadow-sm"
-            >
-              I'm a Brand/Agency
             </Button>
           </motion.div>
           

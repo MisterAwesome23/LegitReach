@@ -62,14 +62,14 @@ export function HeroSection() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Button
-              as={Link}
-              to="/signup/creator"
-              size="xl"
-              className="shadow-lg"
-            >
-              I'm a Creator
-            </Button>
+            <Link to="/signup/creator">
+              <Button
+                size="xl"
+                className="shadow-lg"
+              >
+                I'm a Creator
+              </Button>
+            </Link>
           </motion.div>
           
           <motion.div

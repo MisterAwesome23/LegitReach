@@ -5,550 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LegitReach – Landing + Pitch Deck</title>
 
-  <!-- Tailwind & Vanta.js Dependencies -->
+  <!-- Tailwind & Three.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
 
   <!-- IBM Plex Mono Font -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: 'IBM Plex Mono', monospace; margin:0; }
-    /* Pulsing banner on landing */
-    .help-banner { animation: pulse 2s infinite; }
-    @keyframes pulse {
-      0%,100% { opacity:1; }
-      50% { opacity:0.7; }
-    }
-    /* Pitch deck slides */
-    .slide { display: none; }
-    .slide.active { display: block; }
+    /* Divider stripes */
     .brutal-divider {
       background: repeating-linear-gradient(
         45deg,
-        #000,
-        #000 10px,
-        #22c55e 10px,
-        #22c55e 20px
+        #000 0, #000 8px,
+        #22c55e 8px, #22c55e 16px,
+        #fff 16px, #fff 24px
       );
-      height: 8px;
+      height: 6px;
+      margin: 2rem 0;
     }
+    /* Section wrapper */
+    .content-section { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; }
+    /* Top unique/banner style */
+    .top-banner { background-color: #fee2e2; color: #991b1b; font-weight: bold; padding: 0.75rem 1.5rem; text-align: center; margin: 2rem auto; max-width: 600px; }
   </style>
 </head>
-<body class="bg-white text-black overflow-hidden">
+<body class="bg-white text-black">
 
-  <!-- Vanta BG -->
-  <div id="vanta-bg" class="fixed inset-0 z-0 opacity-10"></div>
-
-  <!-- Landing Section -->
-  <section id="landing" class="relative z-10 min-h-screen flex flex-col items-center justify-center p-8">
-    <div class="help-banner bg-green-500 text-black px-6 py-2 mb-8 border-2 border-black transform -rotate-2">
-      <span class="text-sm font-bold uppercase tracking-wider">Help Needed!</span>
-    </div>
+  <!-- Landing -->
+  <section id="landing" class="min-h-screen flex flex-col items-center justify-center p-8">
     <div class="text-center">
       <h1 class="text-6xl md:text-8xl font-bold uppercase tracking-tighter mb-6">LEGITREACH</h1>
       <div class="w-full h-2 bg-green-500 mb-8"></div>
       <h2 class="text-xl md:text-2xl font-bold mb-12 tracking-wide">AI-ASSISTED ADS. REAL RESULTS.</h2>
-      <a href="#deck"
-         class="inline-block bg-black text-white py-4 px-12 text-lg font-bold uppercase
-                hover:bg-green-500 hover:text-black transition-all duration-300
-                border-4 border-black hover:border-green-500 transform hover:scale-105">
+      <a href="#deck" class="inline-block bg-black text-white py-4 px-12 text-lg font-bold uppercase border-4 border-black hover:bg-green-500 hover:text-black transition duration-300">
         HELP US!
       </a>
     </div>
   </section>
 
-  <!-- Pitch Deck Section -->
-  <section id="deck" class="relative z-10 bg-white text-black overflow-hidden">
-    <div class="relative min-h-screen">
+  <!-- Full Scroll Deck -->
+  <section id="deck" class="bg-white text-black">
 
-      <div id="vanta-bg" class="absolute inset-0 z-0 opacity-10"></div>
-      
-      <!-- Navigation -->
-      <nav class="relative z-10 border-b-4 border-black bg-white">
-        <div class="container mx-auto flex justify-between items-center px-4 py-3">
-          <div class="text-xl font-bold tracking-tighter uppercase">LEGITREACH</div>
-          <div class="flex space-x-4 text-xs">
-            <span id="slide-counter" class="bg-black text-white px-2 py-1">01/08</span>
-            <button id="prev-btn" class="hover:bg-black hover:text-white px-2 py-1 border border-black">PREV</button>
-            <button id="next-btn" class="hover:bg-black hover:text-white px-2 py-1 border border-black">NEXT</button>
-          </div>
-        </div>
-      </nav>
+    <!-- Top Unique Banner -->
+    <div class="top-banner">Brutally Honest Pitch Deck</div>
 
-      <!-- Slides Container -->
-      <div class="relative z-10 h-screen overflow-y-auto">
-        
-        <!-- Slide 1: Title -->
-        <div class="slide active min-h-screen flex flex-col">
-          <div class="flex-1 flex items-center justify-center p-8">
-            <div class="text-center">
-              <h1 class="text-8xl md:text-9xl font-bold uppercase tracking-tighter mb-8">LEGITREACH</h1>
-              <div class="w-full h-2 bg-green-500 mb-8"></div>
-              <h2 class="text-2xl md:text-4xl font-bold mb-4">AI-ASSISTED ADS. REAL RESULTS.</h2>
-              <div class="flex justify-center space-x-8 text-xs uppercase">
-                <span class="bg-black text-white px-4 py-2">AI-POWERED</span>
-                <span class="bg-black text-white px-4 py-2">D2C MARTECH</span>
-                <span class="bg-black text-white px-4 py-2">PERFORMANCE-DRIVEN</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white flex items-center justify-center p-8">
-            <div class="text-center">
-              <h3 class="text-3xl font-bold mb-6 text-green-500">BRUTAL REALITY:</h3>
-              <div class="grid md:grid-cols-3 gap-8 text-sm">
-                <div>
-                  <h4 class="font-bold mb-2">OVERSATURATED MARKET</h4>
-                  <p>500+ AI ad tools launched in 2023. Most dead by 2024.</p>
-                </div>
-                <div>
-                  <h4 class="font-bold mb-2">CUSTOMER FATIGUE</h4>
-                  <p>D2C brands tired of "revolutionary" solutions that don't work.</p>
-                </div>
-                <div>
-                  <h4 class="font-bold mb-2">FUNDING WINTER</h4>
-                  <p>VCs skeptical of "AI for X" pitches. Prove traction first.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2: Problem -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">THE PROBLEM</h1>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="border-2 border-black p-6">
-                <h3 class="text-2xl font-bold mb-4">Time Drain</h3>
-                <p>Brands spend countless hours creating ad variations with no guarantee of performance</p>
-              </div>
-              <div class="border-2 border-black p-6">
-                <h3 class="text-2xl font-bold mb-4">Budget Waste</h3>
-                <p>Ineffective creatives burn through marketing budgets before optimization can occur</p>
-              </div>
-              <div class="border-2 border-black p-6">
-                <h3 class="text-2xl font-bold mb-4">Performance Guesswork</h3>
-                <p>No systematic approach to identify which creative elements drive conversions</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">WHAT WE DON'T SAY:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">THE REAL PROBLEM</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• Most brands are just bad at marketing</li>
-                  <li>• They blame tools instead of strategy</li>
-                  <li>• No amount of AI fixes poor product-market fit</li>
-                  <li>• 90% will churn within 6 months regardless</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">INDUSTRY TRUTH</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• Facebook/Meta changes algorithms faster than we can adapt</li>
-                  <li>• iOS updates killed attribution overnight</li>
-                  <li>• Customers want magic bullets, not process improvement</li>
-                  <li>• We're selling hope, not guaranteed outcomes</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: Solution -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">OUR SOLUTION</h1>
-            <div class="mb-8">
-              <h2 class="text-3xl font-bold mb-4">LegitReach: The Closed Loop Ad Performance System</h2>
-              <p class="text-lg mb-8">Automating the entire creative lifecycle with AI-powered generation, testing, and optimization</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition-colors">
-                <h3 class="text-2xl font-bold mb-4">AI Creation</h3>
-                <p>Generate dozens of on-brand ad variations in minutes, not days</p>
-              </div>
-              <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition-colors">
-                <h3 class="text-2xl font-bold mb-4">Automated Testing</h3>
-                <p>Deploy ads to Meta platforms with intelligent budget allocation</p>
-              </div>
-              <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition-colors">
-                <h3 class="text-2xl font-bold mb-4">Performance Scaling</h3>
-                <p>Automatically identify and scale winning creatives based on ROAS</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">SOLUTION REALITY CHECK:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">TECHNICAL LIMITATIONS</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• AI still generates mediocre content 70% of the time</li>
-                  <li>• Meta's API has rate limits and costs $$$</li>
-                  <li>• "Closed loop" depends on clean data (spoiler: it's messy)</li>
-                  <li>• Automation breaks when platforms update (constantly)</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">COMPETITIVE REALITY</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• Canva, Adobe, and 50 others do similar things</li>
-                  <li>• Facebook built Creative Hub for free</li>
-                  <li>• Most brands prefer agencies over tools</li>
-                  <li>• We're not that different from existing solutions</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4: Market -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">MARKET OPPORTUNITY</h1>
-            <div class="grid md:grid-cols-2 gap-12">
-              <div class="text-center">
-                <div class="text-8xl font-bold mb-4">$151B</div>
-                <p class="text-lg mb-2">US D2C e-commerce market by 2024</p>
-                <p class="text-green-500 font-bold">12.1% YoY growth</p>
-              </div>
-              <div class="text-center">
-                <div class="text-8xl font-bold mb-4">$38B</div>
-                <p class="text-lg mb-2">Digital ad spend by D2C brands</p>
-                <p class="text-green-500 font-bold">18.7% YoY growth</p>
-              </div>
-            </div>
-            <div class="text-center mt-12">
-              <div class="inline-block border-4 border-black p-8">
-                <h3 class="text-2xl font-bold mb-2">TAM</h3>
-                <div class="text-5xl font-bold">$11.3B</div>
-                <p class="text-lg">D2C MarTech</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">MARKET REALITY:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">TAM IS FANTASY</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• "Addressable" doesn't mean "reachable"</li>
-                  <li>• 90% of D2C brands have &lt;$1M revenue</li>
-                  <li>• Most can't afford $500/month tools</li>
-                  <li>• Real SAM is probably &lt;$100M</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">COMPETITION INCOMING</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• Meta will build this internally</li>
-                  <li>• Google has unlimited resources</li>
-                  <li>• Shopify could acquire us or kill us</li>
-                  <li>• Window of opportunity: 18 months max</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 5: Business Model -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">BUSINESS MODEL</h1>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="border-4 border-black p-6 text-center">
-                <h3 class="text-2xl font-bold mb-4">Starter</h3>
-                <div class="text-4xl font-bold mb-4">$499</div>
-                <p class="text-sm mb-4">per month</p>
-                <ul class="text-left text-sm space-y-2">
-                  <li>• Up to 5 products</li>
-                  <li>• 30 ad variations/mo</li>
-                  <li>• Basic analytics</li>
-                </ul>
-              </div>
-              <div class="border-4 border-green-500 bg-green-500 text-black p-6 text-center">
-                <h3 class="text-2xl font-bold mb-4">Growth</h3>
-                <div class="text-4xl font-bold mb-4">$999</div>
-                <p class="text-sm mb-4">per month</p>
-                <ul class="text-left text-sm space-y-2">
-                  <li>• Up to 15 products</li>
-                  <li>• 100 ad variations/mo</li>
-                  <li>• Advanced analytics</li>
-                  <li>• A/B testing suite</li>
-                </ul>
-              </div>
-              <div class="border-4 border-black p-6 text-center">
-                <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
-                <div class="text-4xl font-bold mb-4">$2,499</div>
-                <p class="text-sm mb-4">per month</p>
-                <ul class="text-left text-sm space-y-2">
-                  <li>• Unlimited products</li>
-                  <li>• Unlimited variations</li>
-                  <li>• Custom reporting</li>
-                  <li>• Account manager</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">PRICING REALITY:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">CUSTOMER ACQUISITION</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• CAC will be $2,000+ in this space</li>
-                  <li>• Sales cycles: 3-6 months minimum</li>
-                  <li>• Most will demand free trials</li>
-                  <li>• Churn rate: 40-60% annually</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">UNIT ECONOMICS</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• AI costs: $50-100 per customer/month</li>
-                  <li>• Meta API costs scale with usage</li>
-                  <li>• Support will be expensive</li>
-                  <li>• Margins thinner than projected</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 6: Traction -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">TRACTION & TEAM</h1>
-            <div class="grid md:grid-cols-2 gap-12">
-              <div>
-                <h2 class="text-3xl font-bold mb-6">Current Progress</h2>
-                <div class="space-y-6">
-                  <div class="border-2 border-black p-4">
-                    <h3 class="font-bold">MVP Development</h3>
-                    <p class="text-2xl">60% Complete</p>
-                  </div>
-                  <div class="border-2 border-black p-4">
-                    <h3 class="font-bold">Beta Partners</h3>
-                    <p class="text-2xl">4/10 Secured</p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h2 class="text-3xl font-bold mb-6">Team</h2>
-                <div class="space-y-4">
-                  <div class="border-2 border-green-500 p-4">
-                    <h3 class="font-bold">Founder & CEO</h3>
-                    <p class="text-sm">Ex-Facebook Ads Specialist</p>
-                  </div>
-                  <div class="border-2 border-green-500 p-4">
-                    <h3 class="font-bold">CTO</h3>
-                    <p class="text-sm">Ex-Amazon ML Engineer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">TRACTION REALITY:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">MVP TRUTH</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• "60% complete" = barely functional prototype</li>
-                  <li>• Beta partners are friends/former colleagues</li>
-                  <li>• No paying customers yet</li>
-                  <li>• Haven't solved the hard technical problems</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">TEAM REALITY</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• Two-person team competing with funded startups</li>
-                  <li>• No enterprise sales experience</li>
-                  <li>• Advisors don't write checks</li>
-                  <li>• Need to hire fast, but can't afford talent</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 7: Fundraising -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">FUNDRAISING ASK</h1>
-            <div class="text-center mb-12">
-              <div class="text-9xl font-bold text-green-500 mb-4">$750,000</div>
-              <p class="text-2xl">For 18 months runway to reach key milestones</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div class="text-center border-2 border-black p-6">
-                <h3 class="text-xl font-bold mb-4">Q2 2024</h3>
-                <ul class="text-sm space-y-2">
-                  <li>MVP Launch</li>
-                  <li>10 Paying Customers</li>
-                </ul>
-              </div>
-              <div class="text-center border-2 border-black p-6 bg-green-500 text-black">
-                <h3 class="text-xl font-bold mb-4">Q4 2024</h3>
-                <ul class="text-sm space-y-2">
-                  <li>50 Active Customers</li>
-                  <li>$30K MRR</li>
-                </ul>
-              </div>
-              <div class="text-center border-2 border-black p-6">
-                <h3 class="text-xl font-bold mb-4">Q2 2025</h3>
-                <ul class="text-sm space-y-2">
-                  <li>100+ Customers</li>
-                  <li>Series A Readiness</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8">
-            <h2 class="text-4xl font-bold mb-6 text-green-500">FUNDRAISING REALITY:</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">WHAT WE REALLY NEED</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• 12 months to figure out if this works</li>
-                  <li>• Probably need $1.5M but asking for less</li>
-                  <li>• 80% chance we'll need bridge funding</li>
-                  <li>• May pivot completely based on learnings</li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">MARKET CONDITIONS</h3>
-                <ul class="text-sm space-y-2">
-                  <li>• VCs funding AI = oversaturated</li>
-                  <li>• Pre-revenue SaaS = very hard sell</li>
-                  <li>• Need 100+ investor meetings for 1 yes</li>
-                  <li>• Friends & family round more realistic</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 8: Why Now + Why Us -->
-        <div class="slide min-h-screen flex flex-col">
-          <div class="flex-1 p-8">
-            <h1 class="text-6xl font-bold uppercase mb-8 border-b-4 border-black pb-4">WHY NOW + WHY US</h1>
-            <div class="grid md:grid-cols-2 gap-12">
-              <div>
-                <h2 class="text-3xl font-bold mb-6 text-green-500">Why Now</h2>
-                <ul class="space-y-4 text-lg">
-                  <li>• AI creative tools reaching commercial viability</li>
-                  <li>• D2C brands facing increasing CAC challenges</li>
-                  <li>• Meta platform changes demanding creative testing at scale</li>
-                </ul>
-              </div>
-              <div>
-                <h2 class="text-3xl font-bold mb-6 text-green-500">Why Us</h2>
-                <ul class="space-y-4 text-lg">
-                  <li>• Unique closed-loop system from creation to optimization</li>
-                  <li>• Team combines AI expertise with D2C marketing experience</li>
-                  <li>• Early validation from target customers</li>
-                </ul>
-              </div>
-            </div>
-            <div class="text-center mt-12">
-              <h2 class="text-4xl font-bold mb-6">PARTNER WITH US</h2>
-              <div class="text-2xl">contact@legitreach.ai</div>
-            </div>
-          </div>
-          
-          <div class="brutal-divider"></div>
-          
-          <div class="flex-1 bg-black text-white p-8 flex items-center justify-center">
-            <div class="text-center">
-              <h2 class="text-4xl font-bold mb-6 text-green-500">FINAL REALITY CHECK:</h2>
-              <div class="max-w-4xl">
-                <h3 class="text-2xl font-bold mb-4">THE HONEST TRUTH</h3>
-                <p class="text-lg mb-6">This is a high-risk bet on a crowded market with unclear defensibility.</p>
-                <p class="text-lg mb-6">But we're transparent about the challenges and have a plan to navigate them.</p>
-                <p class="text-lg mb-8">If you believe in our execution ability and market timing, let's build something real together.</p>
-                <div class="text-6xl font-bold text-green-500 mb-4">LEGITREACH</div>
-                <div class="text-xl">BRUTALLY HONEST. ACTUALLY USEFUL.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <!-- Slide 1 -->
+    <div class="content-section text-center">
+      <h1 class="text-8xl md:text-9xl font-bold uppercase tracking-tighter mb-8">LEGITREACH</h1>
+      <div class="w-full h-2 bg-green-500 mb-8"></div>
+      <h2 class="text-2xl md:text-4xl font-bold mb-8">AI-ASSISTED ADS. REAL RESULTS.</h2>
+      <div class="flex justify-center space-x-8 text-xs uppercase mb-4">
+        <span class="bg-black text-white px-4 py-2">AI-POWERED</span>
+        <span class="bg-black text-white px-4 py-2">D2C MARTECH</span>
+        <span class="bg-black text-white px-4 py-2">PERFORMANCE-DRIVEN</span>
       </div>
     </div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 2 -->
+    <div class="content-section">
+      <h2 class="text-6xl font-bold uppercase mb-6">THE PROBLEM</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-black p-6">
+          <h3 class="text-2xl font-bold mb-4">Time Drain</h3>
+          <p>Brands spend countless hours creating ad variations with no guarantee of performance.</p>
+        </div>
+        <div class="border-2 border-black p-6">
+          <h3 class="text-2xl font-bold mb-4">Budget Waste</h3>
+          <p>Ineffective creatives burn through marketing budgets before optimization can occur.</p>
+        </div>
+        <div class="border-2 border-black p-6">
+          <h3 class="text-2xl font-bold mb-4">Performance Guesswork</h3>
+          <p>No systematic approach to identify which creative elements drive conversions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 3 -->
+    <div class="content-section">
+      <h2 class="text-6xl font-bold uppercase mb-6">OUR SOLUTION</h2>
+      <p class="text-lg mb-8">LegitReach: The Closed Loop Ad Performance System that automates the entire creative lifecycle with AI-powered generation, testing, and optimization.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">AI Creation: Generate on-brand variations in minutes.</div>
+        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">Automated Testing: Deploy and allocate budgets intelligently.</div>
+        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">Performance Scaling: Identify and scale winning creatives.</div>
+      </div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 4 -->
+    <div class="content-section text-center">
+      <h2 class="text-6xl font-bold uppercase mb-6">MARKET OPPORTUNITY</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div><div class="text-8xl font-bold mb-2">$151B</div><p>US D2C e‑commerce market by 2024 (12.1% YoY)</p></div>
+        <div><div class="text-8xl font-bold mb-2">$38B</div><p>Digital ad spend by D2C brands (18.7% YoY)</p></div>
+      </div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 5 -->
+    <div class="content-section text-center">
+      <h2 class="text-6xl font-bold uppercase mb-6">BUSINESS MODEL</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-4 border-black p-6">Starter: $499/mo – Up to 5 products, 30 variations, basic analytics.</div>
+        <div class="border-4 border-green-500 bg-green-500 text-black p-6">Growth: $999/mo – Up to 15 products, 100 variations, A/B suite.</div>
+        <div class="border-4 border-black p-6">Enterprise: $2,499/mo – Unlimited products & variations, custom reports.</div>
+      </div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 6 -->
+    <div class="content-section">
+      <h2 class="text-6xl font-bold uppercase mb-6">TRACTION & TEAM</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div><h3 class="text-3xl font-bold mb-4">MVP Development</h3><p>60% Complete</p></div>
+        <div><h3 class="text-3xl font-bold mb-4">Beta Partners</h3><p>4/10 Secured</p></div>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <div class="border-2 border-green-500 p-4">Founder & CEO: Ex-Facebook Ads Specialist</div>
+        <div class="border-2 border-green-500 p-4">CTO: Ex-Amazon ML Engineer</div>
+      </div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 7 -->
+    <div class="content-section text-center">
+      <h2 class="text-6xl font-bold uppercase mb-6">FUNDRAISING ASK</h2>
+      <div class="text-9xl font-bold text-green-500 mb-4">$750K</div>
+      <p>18 months runway to hit key milestones.</p>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+    <div class="brutal-divider"></div>
+
+    <!-- Slide 8 -->
+    <div class="content-section text-center">
+      <h2 class="text-6xl font-bold uppercase mb-6">WHY NOW + WHY US</h2>
+      <p class="mb-4">Unique closed-loop system + proven AI & D2C experience. Early validation in a high-growth market.</p>
+      <div class="text-2xl"><a href="mailto:contact@legitreach.ai">contact@legitreach.ai</a></div>
+    </div>
+    <div class="top-banner">We watched brands waste hours and budgets, so we built a solution.</div>
+
   </section>
 
-  <!-- Scripts -->
-  <script>
-    // Vanta background
-    document.addEventListener('DOMContentLoaded', function() {
-      VANTA.TOPOLOGY({
-        el: "#vanta-bg",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x22c55e,
-        backgroundColor: 0xffffff
-      });
-    });
-
-    // Slide deck navigation
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-
-    function updateSlideCounter() {
-      document.getElementById('slide-counter').textContent =
-        `${String(currentSlide + 1).padStart(2, '0')}/${String(totalSlides).padStart(2, '0')}`;
-    }
-
-    function showSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (n + totalSlides) % totalSlides;
-      slides[currentSlide].classList.add('active');
-      updateSlideCounter();
-    }
-
-    document.getElementById('next-btn').addEventListener('click', () => showSlide(currentSlide + 1));
-    document.getElementById('prev-btn').addEventListener('click', () => showSlide(currentSlide - 1));
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
-      if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
-    });
-
-    // Initialize counter
-    updateSlideCounter();
-  </script>
+  <!-- No JS needed for scrolling deck -->
 </body>
 </html>

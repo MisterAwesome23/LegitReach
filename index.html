@@ -24,11 +24,14 @@
       overflow-y: auto;
       scroll-snap-type: y mandatory;
       font-family: 'IBM Plex Mono', monospace;
+      scroll-padding-top: 0; /* ensure start snap at top */
     }
     section {
       height: 100vh;
-      scroll-snap-align: center;
+      scroll-snap-align: start;
       position: relative;
+      padding-bottom: 80px; /* space for scroll button */
+      box-sizing: border-box;
     }
     /* Divider stripes */
     .brutal-divider {
@@ -43,7 +46,13 @@
       margin: 2rem 0;
     }
     /* Section wrapper */
-    .content-section { max-width: 1280px; width: 100%; margin: 0 auto; padding: 4rem 2rem; box-sizing: border-box; }
+    .content-section {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      box-sizing: border-box;
+    }
     /* Top unique/banner style */
     .top-banner {
       background-color: #fee2e2;
@@ -56,6 +65,7 @@
     }
     /* clickable scroll button */
     .scroll-button {
+      z-index: 10;
       width: 44px;
       height: 44px;
       border: 2px solid rgba(0,0,0,0.3);
@@ -84,26 +94,46 @@
     }
     /* small-screen tweaks */
     @media (max-width: 640px) {
-      .content-section { padding: 2rem 1rem; }
-      .top-banner { padding: 0.5rem 1rem; margin: 1rem auto; }
-      .scroll-button { width: 36px; height: 36px; bottom: 12px; }
-      .scroll-button span { font-size: 1.25rem; }
+      section {
+        padding-bottom: 60px;
+      }
+      .content-section {
+        padding: 1.5rem 1rem;
+      }
+      .top-banner {
+        padding: 0.5rem 1rem;
+        margin: 1rem auto;
+      }
+      .scroll-button {
+        width: 36px;
+        height: 36px;
+        bottom: 12px;
+      }
+      .scroll-button span {
+        font-size: 1.25rem;
+      }
 
-      /* typography scaling */
-      h1.md\:text-8xl, h1.text-6xl { font-size: 2.5rem; margin-bottom: 1rem; }
-      h2.md\:text-2xl, h2.text-xl, h2.text-6xl { font-size: 1.25rem; margin-bottom: 0.75rem; }
-      h3.text-2xl { font-size: 1rem; margin-bottom: 0.5rem; }
-      h4 { font-size: 1rem; }
+      /* typography scaling and spacing */
+      h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+      h2 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+      h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+      h4 { font-size: 0.875rem; margin-bottom: 0.5rem; }
+
       .text-9xl { font-size: 3rem; }
       .text-8xl { font-size: 2.5rem; }
-      .text-2xl { font-size: 1rem; }
-      .text-lg { font-size: 0.875rem; }
-      .text-xl { font-size: 1rem; }
-      .text-8xl, .text-9xl, .text-6xl { margin-bottom: 0.5rem; }
-      .text-3xl { font-size: 1.25rem; }
+      .text-6xl { font-size: 2.25rem; }
       .text-5xl { font-size: 2rem; }
+      .text-4xl { font-size: 1.75rem; }
+      .text-3xl { font-size: 1.25rem; }
+      .text-2xl { font-size: 1rem; }
+      .text-xl { font-size: 0.875rem; }
+      .text-lg { font-size: 0.75rem; }
+
       /* reduce divider margin */
       .brutal-divider { margin: 1rem 0; }
+
+      /* list spacing */
+      .list-disc li { margin-bottom: 0.5rem; }
     }
   </style>
 </head>

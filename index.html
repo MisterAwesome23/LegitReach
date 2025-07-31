@@ -24,16 +24,15 @@
       overflow-y: auto;
       scroll-snap-type: y mandatory;
       font-family: 'IBM Plex Mono', monospace;
-      scroll-padding-top: 0; /* ensure start snap at top */
+      scroll-padding-top: 0;
     }
     section {
       height: 100vh;
       scroll-snap-align: start;
       position: relative;
-      padding-bottom: 80px; /* space for scroll button */
+      padding-bottom: 100px; /* space for scroll button */
       box-sizing: border-box;
     }
-    /* Divider stripes */
     .brutal-divider {
       width: 100%;
       background: repeating-linear-gradient(
@@ -45,7 +44,6 @@
       height: 6px;
       margin: 2rem 0;
     }
-    /* Section wrapper */
     .content-section {
       max-width: 1280px;
       width: 100%;
@@ -53,7 +51,6 @@
       padding: 4rem 2rem;
       box-sizing: border-box;
     }
-    /* Top unique/banner style */
     .top-banner {
       background-color: #fee2e2;
       color: #991b1b;
@@ -63,7 +60,6 @@
       margin: 2rem auto;
       max-width: 600px;
     }
-    /* clickable scroll button */
     .scroll-button {
       z-index: 10;
       width: 44px;
@@ -94,8 +90,9 @@
     }
     /* small-screen tweaks */
     @media (max-width: 640px) {
+      html { font-size: 62.5%; } /* 1rem = 10px */
       section {
-        padding-bottom: 60px;
+        padding-bottom: 80px;
       }
       .content-section {
         padding: 1.5rem 1rem;
@@ -112,27 +109,21 @@
       .scroll-button span {
         font-size: 1.25rem;
       }
-
-      /* typography scaling and spacing */
-      h1 { font-size: 2rem; margin-bottom: 0.75rem; }
-      h2 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-      h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-      h4 { font-size: 0.875rem; margin-bottom: 0.5rem; }
-
-      .text-9xl { font-size: 3rem; }
-      .text-8xl { font-size: 2.5rem; }
-      .text-6xl { font-size: 2.25rem; }
-      .text-5xl { font-size: 2rem; }
-      .text-4xl { font-size: 1.75rem; }
-      .text-3xl { font-size: 1.25rem; }
-      .text-2xl { font-size: 1rem; }
-      .text-xl { font-size: 0.875rem; }
-      .text-lg { font-size: 0.75rem; }
-
-      /* reduce divider margin */
+      /* typography scaling */
+      h1 { font-size: 2rem !important; margin-bottom: 0.75rem; }
+      h2 { font-size: 1.25rem !important; margin-bottom: 0.5rem; }
+      h3 { font-size: 1rem !important; margin-bottom: 0.5rem; }
+      h4 { font-size: 0.875rem !important; margin-bottom: 0.5rem; }
+      .text-9xl { font-size: 3rem !important; }
+      .text-8xl { font-size: 2.5rem !important; }
+      .text-6xl { font-size: 2rem !important; }
+      .text-5xl { font-size: 1.75rem !important; }
+      .text-4xl { font-size: 1.5rem !important; }
+      .text-3xl { font-size: 1.25rem !important; }
+      .text-2xl { font-size: 1rem !important; }
+      .text-xl { font-size: 0.875rem !important; }
+      .text-lg { font-size: 0.75rem !important; }
       .brutal-divider { margin: 1rem 0; }
-
-      /* list spacing */
       .list-disc li { margin-bottom: 0.5rem; }
     }
   </style>
@@ -153,7 +144,7 @@
     <a href="#slide1" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 1: Banner + Cover -->
+  <!-- Slide 1 -->
   <section id="slide1" class="flex flex-col items-center justify-center bg-white">
     <div class="top-banner">Brutally Honest Pitch Deck</div>
     <div class="content-section text-center">
@@ -170,7 +161,7 @@
     <a href="#slide2" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 2: The Problem -->
+  <!-- Slide 2 -->
   <section id="slide2" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">THE PROBLEM</h2>
@@ -194,7 +185,7 @@
     <a href="#slide3" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 3: Our Solution -->
+  <!-- Slide 3 -->
   <section id="slide3" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">OUR SOLUTION</h2>
@@ -219,7 +210,7 @@
     <a href="#slide4" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 4: Market Opportunity -->
+  <!-- Slide 4 -->
   <section id="slide4" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section text-center">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">MARKET OPPORTUNITY</h2>
@@ -239,7 +230,7 @@
     <a href="#slide5" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 5: Business Model -->
+  <!-- Slide 5 -->
   <section id="slide5" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section text-center">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">BUSINESS MODEL</h2>
@@ -253,7 +244,7 @@
     <a href="#slide6" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 6: Traction & Team -->
+  <!-- Slide 6 -->
   <section id="slide6" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">TRACTION & TEAM</h2>
@@ -280,7 +271,7 @@
     <a href="#slide7" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 7: Fundraising Ask -->
+  <!-- Slide 7 -->
   <section id="slide7" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section text-center">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">FUNDRAISING ASK</h2>
@@ -291,7 +282,7 @@
     <a href="#slide8" class="scroll-button"><span>↓</span></a>
   </section>
 
-  <!-- Slide 8: Why Now + Why Us (Final) -->
+  <!-- Slide 8 -->
   <section id="slide8" class="flex flex-col items-center justify-center bg-white">
     <div class="content-section text-center">
       <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">WHY NOW + WHY US</h2>

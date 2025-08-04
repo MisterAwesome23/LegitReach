@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LegitReach – Landing + Pitch Deck</title>
+  <title>LegitReach – Landing</title>
 
-  <!-- Tailwind & Three.js -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
   <!-- IBM Plex Mono Font -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* prevent lateral scroll */
     html, body {
       overflow-x: hidden;
       height: 100%;
@@ -21,285 +19,39 @@
       scroll-behavior: smooth;
     }
     body {
-      overflow-y: auto;
-      scroll-snap-type: y mandatory;
       font-family: 'IBM Plex Mono', monospace;
-      scroll-padding-top: 0;
     }
-    section {
-      height: 100vh;
-      scroll-snap-align: start;
-      position: relative;
-      padding-bottom: 100px; /* space for scroll button */
-      box-sizing: border-box;
-    }
-    .brutal-divider {
-      width: 100%;
-      background: repeating-linear-gradient(
-        45deg,
-        #000 0, #000 8px,
-        #22c55e 8px, #22c55e 16px,
-        #fff 16px, #fff 24px
-      );
-      height: 6px;
-      margin: 2rem 0;
-    }
-    .content-section {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      box-sizing: border-box;
-    }
-    .top-banner {
-      background-color: #fee2e2;
-      color: #991b1b;
-      font-weight: bold;
-      padding: 0.75rem 1.5rem;
-      text-align: center;
-      margin: 2rem auto;
-      max-width: 600px;
-    }
-    .scroll-button {
-      z-index: 10;
-      width: 44px;
-      height: 44px;
-      border: 2px solid rgba(0,0,0,0.3);
-      border-radius: 50%;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      text-decoration: none;
-    }
-    .scroll-button span {
-      display: block;
-      font-size: 1.5rem;
-      color: rgba(0,0,0,0.3);
-      line-height: 1;
-    }
-    @keyframes bounce {
-      0%,100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-    /* small-screen tweaks */
+    /* mobile typography tweaks */
     @media (max-width: 640px) {
-      html { font-size: 62.5%; } /* 1rem = 10px */
-      section {
-        padding-bottom: 80px;
-      }
-      .content-section {
-        padding: 1.5rem 1rem;
-      }
-      .top-banner {
-        padding: 0.5rem 1rem;
-        margin: 1rem auto;
-      }
-      .scroll-button {
-        width: 36px;
-        height: 36px;
-        bottom: 12px;
-      }
-      .scroll-button span {
-        font-size: 1.25rem;
-      }
-      /* typography scaling */
-      h1 { font-size: 2rem !important; margin-bottom: 0.75rem; }
-      h2 { font-size: 1.25rem !important; margin-bottom: 0.5rem; }
-      h3 { font-size: 1rem !important; margin-bottom: 0.5rem; }
-      h4 { font-size: 0.875rem !important; margin-bottom: 0.5rem; }
-      .text-9xl { font-size: 3rem !important; }
-      .text-8xl { font-size: 2.5rem !important; }
-      .text-6xl { font-size: 2rem !important; }
-      .text-5xl { font-size: 1.75rem !important; }
-      .text-4xl { font-size: 1.5rem !important; }
-      .text-3xl { font-size: 1.25rem !important; }
-      .text-2xl { font-size: 1rem !important; }
-      .text-xl { font-size: 0.875rem !important; }
-      .text-lg { font-size: 0.75rem !important; }
-      .brutal-divider { margin: 1rem 0; }
-      .list-disc li { margin-bottom: 0.5rem; }
+      html { font-size: 62.5%; } /* 1 rem ≈ 10 px */
+      h1 { font-size: 2rem !important; }
+      h2 { font-size: 1.25rem !important; }
     }
   </style>
 </head>
 <body class="bg-white text-black">
 
-  <!-- Landing -->
-  <section id="landing" class="flex flex-col items-center justify-center p-8">
+  <!-- Landing Page -->
+  <section id="landing" class="flex flex-col items-center justify-center min-h-screen p-8">
     <div class="text-center">
       <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-6">LEGITREACH</h1>
       <div class="w-full h-2 bg-green-500 mb-8"></div>
       <h2 class="text-lg md:text-xl font-bold mb-12 tracking-wide">AI-ASSISTED ADS. REAL RESULTS.</h2>
-      <a href="#slide1"
-         class="inline-block bg-black text-white py-2 px-4 md:py-4 md:px-12 text-sm md:text-lg font-bold uppercase border-4 border-black hover:bg-green-500 hover:text-black transition duration-300">
-        KNOW MORE!
-      </a>
-    </div>
-    <a href="#slide1" class="scroll-button"><span>↓</span></a>
-  </section>
 
-  <!-- Slide 1 -->
-  <section id="slide1" class="flex flex-col items-center justify-center bg-white">
-    <div class="top-banner">Brutally Honest Pitch Deck</div>
-    <div class="content-section text-center">
-      <h1 class="text-5xl md:text-8xl font-bold uppercase tracking-tighter mb-8">LEGITREACH</h1>
-      <div class="w-full h-2 bg-green-500 mb-8"></div>
-      <h2 class="text-lg md:text-2xl font-bold mb-8">AI-ASSISTED ADS. REAL RESULTS.</h2>
-      <div class="flex flex-wrap justify-center space-x-4 text-xs uppercase mb-4">
-        <span class="bg-black text-white px-4 py-2">AI-POWERED</span>
-        <span class="bg-black text-white px-4 py-2">D2C MARTECH</span>
-        <span class="bg-black text-white px-4 py-2">PERFORMANCE-DRIVEN</span>
-      </div>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide2" class="scroll-button"><span>↓</span></a>
-  </section>
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://drive.google.com/drive/folders/1eYwyjd1pH7BB1Sqap0O1oaEaaLktFxeH?usp=sharing"
+           target="_blank"
+           class="inline-block bg-black text-white py-2 px-6 md:py-4 md:px-12 text-sm md:text-lg font-bold uppercase border-4 border-black hover:bg-green-500 hover:text-black transition duration-300">
+          Pitch Deck
+        </a>
 
-  <!-- Slide 2 -->
-  <section id="slide2" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">THE PROBLEM</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border-2 border-black p-6">
-          <h3 class="text-xl md:text-2xl font-bold mb-4">Time Drain</h3>
-          <p>D2C brands spend countless hours creating ad variations with no guarantee of performance.</p>
-        </div>
-        <div class="border-2 border-black p-6">
-          <h3 class="text-xl md:text-2xl font-bold mb-4">Budget Waste</h3>
-          <p>Ineffective creatives burn through marketing budgets before optimization can occur.</p>
-        </div>
-        <div class="border-2 border-black p-6">
-          <h3 class="text-xl md:text-2xl font-bold mb-4">Manual Design Churn</h3>
-          <p>No systematic approach to identify which creative elements drive conversions, leading to endless manual adjustments.</p>
-        </div>
+        <a href="https://drive.google.com/drive/folders/1S50joppJnqpaSHDFGYPOOhTB3vNe9a58?usp=sharing"
+           target="_blank"
+           class="inline-block bg-black text-white py-2 px-6 md:py-4 md:px-12 text-sm md:text-lg font-bold uppercase border-4 border-black hover:bg-green-500 hover:text-black transition duration-300">
+          One-Pager
+        </a>
       </div>
-    </div>
-    <div class="top-banner">We watched D2C founders waste hours and budgets on creative guesswork, so we built a solution.</div>
-    <div class="brutal-divider"></div>
-    <a href="#slide3" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 3 -->
-  <section id="slide3" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">OUR SOLUTION</h2>
-      <p class="text-base md:text-lg mb-8">LegitReach: The AI-powered closed-loop ad performance system that turns your existing storefront assets into high-conversion ads, automatically optimized in real-time.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">
-          <h4 class="font-bold mb-2 text-base md:text-lg">AI Creation</h4>
-          <p>Ingests your Shopify product photos, descriptions, and brand guidelines to auto-generate ready-to-publish static ad creatives.</p>
-        </div>
-        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">
-          <h4 class="font-bold mb-2 text-base md:text-lg">Automated Testing</h4>
-          <p>A/B tests creatives on Meta (Facebook/Instagram) and intelligently allocates budgets.</p>
-        </div>
-        <div class="border-2 border-black p-6 hover:bg-green-500 hover:text-black transition">
-          <h4 class="font-bold mb-2 text-base md:text-lg">Performance Scaling</h4>
-          <p>Reallocates budget toward "winning ads" while cutting losses short automatically in real-time.</p>
-        </div>
-      </div>
-      <p class="italic mt-6 text-sm md:text-base">Brand-specific outputs with AI fine-tuned on each store's unique tone and look, plus closed-loop learning from live performance data.</p>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide4" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 4 -->
-  <section id="slide4" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section text-center">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">MARKET OPPORTUNITY</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-6">
-        <div>
-          <div class="text-4xl md:text-8xl font-bold mb-2">$240B</div>
-          <p>US D2C e-commerce market 2025 (19.2% & growing of total U.S. retail e-commerce sales)</p>
-        </div>
-        <div>
-          <div class="text-4xl md:text-8xl font-bold mb-2">$36B</div>
-          <p>Digital ad spend by D2C brands 2024-25 (12.6% growth YoY)</p>
-        </div>
-      </div>
-      <p class="text-base md:text-lg">Growing demand for automated creative solutions among growth-minded D2C founders who lack time, budget, or in-house creative teams.</p>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide5" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 5 -->
-  <section id="slide5" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section text-center">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">BUSINESS MODEL</h2>
-      <div class="space-y-6 text-left max-w-3xl mx-auto">
-        <p class="text-base md:text-lg"><strong>Validated Product-Market Fit:</strong> Manually tested in an agency model – 4 D2C founders onboarded as monthly-recurring customers with a total $8k in advertising spends so far</p>
-        <p class="text-base md:text-lg"><strong>Go-to-Market Strategy:</strong> Free Shopify plug-in as primary acquisition channel → frictionless install, pre-existing user assets on shopify store capable of immediate value powered by LegitReach AI engine → upsell to performance-based SaaS tiers.</p>
-        <p class="text-base md:text-lg"><strong>Pricing:</strong> Usage-based + percentage of accurately quantified sales. [we can track it down to the pixel :)]</p>
-      </div>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide6" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 6 -->
-  <section id="slide6" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">TRACTION & TEAM</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
-        <div>
-          <h3 class="text-xl md:text-3xl font-bold mb-4">Current Progress</h3>
-          <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
-            <li>Ideation began ~3 months ago</li>
-            <li>Validated beta manually 4 D2C e-commerce founders generating $8k in advertising spends</li>
-            <li>Currently mentoring 6 software development students in online advertising domain</li>
-            <li>Fully funding 2 research papers on "100% AI-generated" creative effectiveness</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl md:text-3xl font-bold mb-4">Team Experience</h3>
-          <p class="text-base md:text-lg"><strong>Manthan Admane (CEO):</strong> Software Developer turned Product Marketing Manager @ Applied Materials; created two Shopify stores from 0 → $15k ARR in 6 months.</p>
-          <p class="text-base md:text-lg mt-2"><strong>Harsh Maheshwari (CTO):</strong> ML lead for a 120M-user global health insurance; built pilot ad-creative generation models that undercut existing AI static ad generation services.</p>
-          <p class="text-base md:text-lg mt-2"><strong>Bhuvish Mehta (CSO):</strong> Former venture analyst at Skull Diamond Heart Capital; took 3 D2C CPG brands to next funding rounds.</p>
-        </div>
-      </div>
-      <p class="italic mt-6 text-sm md:text-base"><strong>Collectively:</strong> 9 years of professional network + 12 years of ML & software development experience, >$1M ad spend managed @ Fortune 100 companies.</p>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide7" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 7 -->
-  <section id="slide7" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section text-center">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">FUNDRAISING ASK</h2>
-      <div class="text-5xl md:text-9xl font-bold text-green-500 mb-4">$400K</div>
-      <p class="text-base md:text-lg">12 months runway to transition from validated agency model to globally accessible SaaS platform.</p>
-    </div>
-    <div class="brutal-divider"></div>
-    <a href="#slide8" class="scroll-button"><span>↓</span></a>
-  </section>
-
-  <!-- Slide 8 -->
-  <section id="slide8" class="flex flex-col items-center justify-center bg-white">
-    <div class="content-section text-center">
-      <h2 class="text-3xl md:text-5xl font-bold uppercase mb-6">WHY NOW + WHY US</h2>
-      <div class="space-y-4 text-left max-w-3xl mx-auto mb-6">
-        <p class="text-base md:text-lg"><strong>Proven Validation:</strong> Successfully tested product-market fit with real D2C customers and measurable results.</p>
-        <p class="text-base md:text-lg"><strong>Unique Technology:</strong> Closed-loop learning system with brand-specific AI fine-tuning.</p>
-        <p class="text-base md:text-lg"><strong>Experienced Team:</strong> Deep expertise in Facebook Ads, software development & data science.</p>
-        <p class="text-base md:text-lg"><strong>Market Timing:</strong> High-growth D2C market with increasing demand for automated creative solutions.</p>
-      </div>
-      <p class="italic mb-8 text-sm md:text-base">Vision: Become the default growth engine for every small-to-mid D2C brand. "Push once, boost profit forever."</p>
-      <div class="text-lg mb-6">
-        <a href="mailto:legitreach.official@gmail.com">legitreach.official@gmail.com</a>
-      </div>
-      <a href="https://drive.google.com/file/d/1Gimo15DfubjeNkWifAUQ26QRBwCyz3DU/view?usp=sharing"
-         class="inline-block bg-black text-white py-2 px-4 md:py-4 md:px-12 text-sm md:text-lg font-bold uppercase border-4 border-black hover:bg-green-500 hover:text-black transition duration-300" target="_blank">
-        Download One-Pager
-      </a>
     </div>
   </section>
 
